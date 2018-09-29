@@ -25,6 +25,7 @@
     <modules>
         <module>ConsistentHashTest</module>
         <module>LearnNIO</module>
+        <module>LearnReflection</module>
     </modules>
 
     <dependencyManagement>

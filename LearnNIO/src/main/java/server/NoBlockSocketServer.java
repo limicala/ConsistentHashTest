@@ -68,7 +68,7 @@ public class NoBlockSocketServer {
             client.configureBlocking(false);
 
             client.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE)
-            .attach(new Message());
+                    .attach(new Message());
 
         }catch (IOException e){
             e.printStackTrace();
@@ -138,42 +138,8 @@ public class NoBlockSocketServer {
         message.setBody(null);
     }
 
-
     public static void main(String[] args) {
-        NoBlockSocketServer server = new NoBlockSocketServer();
-
-        server.init();
+        new NoBlockSocketServer().init();
     }
 
-}
-
-class Message {
-    private final int headSize = 5;
-    private ByteBuffer head;
-    private ByteBuffer body;
-
-    public Message(){
-        head = ByteBuffer.allocate(headSize);
-        body = null;
-    }
-
-    public ByteBuffer getHead() { return head; }
-    public ByteBuffer getBody() { return body; }
-
-    public void setBody(ByteBuffer body) {
-        this.body = body;
-    }
-
-    public boolean invalidHead(){
-        int i = headSize;
-        for (; i > 0; i--){
-            if (head.array()[i - 1] < 31) break;
-        }
-        if (i == 0) return false;
-
-        System.out.println("i:" + i);
-        head.position(i);
-        head.compact();
-        return true;
-    }
 }
