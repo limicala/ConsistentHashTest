@@ -4,6 +4,10 @@ package server;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ChannelTest {
 
@@ -28,6 +32,15 @@ public class ChannelTest {
     }
 
     public static void main(String[] args) {
+        Map<String, List<Integer>> map = new HashMap<>();
 
+        List<Integer> list = map.get("aa");
+
+        System.out.println(list == null);
+
+        list = new ArrayList<>();
+
+        List<Integer> list1 = map.get("aa");
+        System.out.println(list1 == null);
     }
 }
