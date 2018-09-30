@@ -27,6 +27,7 @@
         <module>LearnNIO</module>
         <module>LearnReflection</module>
         <module>NettyWork</module>
+        <module>TopicConcurrent</module>
     </modules>
 
     <dependencyManagement>
